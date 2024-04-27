@@ -40,20 +40,6 @@ if command -v dpkg >/dev/null 2>&1; then
   fi
 fi
 
-# Update EndeavourOS 
-# (honestly idk why I have this, considering eos-update is just a frontend for pacman, yay & paru)
-if [[ "$os_name" == endeavouros ]]; then
-  if command -v paru >/dev/null 2>&1; then
-    argu=--paru
-    endy=paru
-  elif command -v yay >/dev/null 2>&1; then
-    argu=--yay
-    endy=yay
-  fi
-  printf "Detected EndeavourOS, updating with eos-update with %s$endy...\n"
-  eos-update "$argu"
-fi
-
 # Update Arch Linux (including yay & paru check)
 if [[ "$os_name" == arch ]]; then
   if command -v paru >/dev/null 2>&1; then
@@ -66,6 +52,20 @@ if [[ "$os_name" == arch ]]; then
     printf "Detected Arch Linux, unable to find paru or yay, updating with pacman..."
     sudo pacman -Syu
   fi
+fi
+
+# Update EndeavourOS 
+# (honestly idk why I have this, considering eos-update is just a frontend for pacman, yay & paru)
+if [[ "$os_name" == endeavouros ]]; then
+  if command -v paru >/dev/null 2>&1; then
+    argu=--paru
+    endy=paru
+  elif command -v yay >/dev/null 2>&1; then
+    argu=--yay
+    endy=yay
+  fi
+  printf "Detected EndeavourOS, updating with eos-update with %s$endy...\n"
+  eos-update "$argu"
 fi
 
 echo
