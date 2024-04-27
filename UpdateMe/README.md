@@ -37,9 +37,15 @@
     ./UpdateMe.sh
     ```
 
-    as long as the file is in the home directory it can be run
+    - as long as the file is in the home directory it can be run
 
-3. `git clone` it
+3. Run straight from github
+
+    ```bash
+    bash -c "$(curl -fS https://raw.githubusercontent.com/vbrabandt2005/General-Scripts/main/UpdateMe/UpdateMe.sh)"
+    ```
+
+4. `git clone` it
 
     ```bash
     git clone https://github.com/vbrabandt2005/General-Scripts
@@ -47,7 +53,7 @@
 
 ## Why did I create this?
 
-I used to rely on `sudo nala update && sudo nala full-upgrade && sudo snap refresh && flatpak update` to keep my system updated and I then proceeded to write a basic shell script which ran this command seqence.  This worked well for Ubuntu, but when I installed EndeavourOS onto my second MacBook, the script became unusable because EndeavourOS/Arch utilizes `pacman` instead of apt/nala.
+I used to rely on `sudo nala update && sudo nala full-upgrade && sudo snap refresh && flatpak update` to keep my system updated and I then proceeded to write a basic shell script which ran this command seqence.  This worked well for **Ubuntu**, but when I installed **EndeavourOS** onto my second MacBook, the script became unusable because **EndeavourOS/Arch** utilizes `pacman` instead of `apt/nala`.
 
 This sparked my journey into shell scripting. I wanted a convenient, universal script that could handle updates across different distributions. The result is this new script. It not only automates updates but also offers the potential for future customization based on my needs.
 
