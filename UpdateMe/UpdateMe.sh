@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# UpdateMe.sh is a simple shell script which detects what OS
+# UpdateMe is a simple shell script which detects what OS
 # the script is running on and run the appropriate update command for that system
 # then proceeds to check if snap, flatpak or Pacstall is installed
 # and run the commands to check for updates for those too
@@ -9,7 +9,7 @@
 
 # Check for compatible OS file
 if [ ! -f /etc/os-release ]; then
-  printf "Error: This script seems to not be supported by this script.\n"
+  printf "Error: This script seems not be to supported by this script.\n"
   #"Error: This script is only for systems with /etc/os-release file."
   exit 1
 fi
@@ -20,7 +20,7 @@ os_name=$(grep -Eo '^ID=.*' /etc/os-release | cut -d= -f2- | tr -d '"')
 # Update for Debian-based systems (including nala-apt check)
 if command -v dpkg >/dev/null 2>&1; then
   # Likely a Debian-based system, use apt (or nala) commands
-  printf "Detected Debian-based system\n"
+  printf "Detected Debian/Ubuntu-based system\n"
   if command -v nala >/dev/null 2>&1; then
     # nala-apt exists, use nala commands
     printf "nala found, using nala to update...\n"
@@ -35,6 +35,8 @@ if command -v dpkg >/dev/null 2>&1; then
   if command -v pacstall >/dev/null 2>&1; then
     printf "pactall is installed, will check for pactall updates...\n"
     pacstall -U && pacstall -Up
+    else
+    printf "Flatpak is not found, will skip checking flatpak updates.\n"
   fi
 fi
 
