@@ -42,7 +42,7 @@
 3. Run straight from github
 
     ```bash
-    bash -c "$(curl -fS https://raw.githubusercontent.com/vbrabandt2005/General-Scripts/main/UpdateMe/UpdateMe.sh)"
+    bash -c "$(curl -fsS https://raw.githubusercontent.com/vbrabandt2005/General-Scripts/main/UpdateMe/UpdateMe.sh)"
     ```
 
 4. `git clone` it
