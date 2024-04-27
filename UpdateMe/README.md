@@ -14,7 +14,7 @@
   - [x] [paru](https://github.com/Morganamilo/paru)
 - [EndeavourOS](https://endeavouros.com)
   - [x] eos-update
-  - Probably very useless as EndeavourOS is based on Arch
+  - Probably very useless as EndeavourOS is based on Arch and `eos-update` is just a frontend for pacman, yay & paru
 
 ## Usage
 
