@@ -91,4 +91,4 @@ else
   printf "Flatpak is not found, will skip checking flatpak updates.\n"
 fi
 
-printf "All update checks complete."
+printf "All update checks complete.\n"
