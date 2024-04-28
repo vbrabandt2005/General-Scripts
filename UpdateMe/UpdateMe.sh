@@ -1,5 +1,4 @@
 #!/bin/bash
-
 # Title: UpdateMe
 # By vbrabandt2005 <vbrabandt@proton.me>
 
