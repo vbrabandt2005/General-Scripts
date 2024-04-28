@@ -21,7 +21,6 @@ if command -v dpkg >/dev/null 2>&1 && [[ "$os_like" == debian || "$os_like" == u
   else
     printf "What the? apt is not found.\n"
   fi
-  
   if command -v pacstall >/dev/null 2>&1; then
     printf "pactall is installed, will check for pactall updates...\n"
     pacstall -U && pacstall -Up
