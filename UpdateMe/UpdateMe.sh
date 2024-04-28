@@ -23,11 +23,9 @@ if command -v dpkg >/dev/null 2>&1 && [[ "$os_like" == debian || "$os_like" == u
   # Likely a Debian-based system, use apt (or nala) commands
   printf "Detected Debian/Ubuntu-based system\n"
   if command -v nala >/dev/null 2>&1; then
-    # nala-apt exists, use nala commands
     printf "nala found, using nala to update...\n"
     sudo nala update && sudo nala full-upgrade
   else
-    # nala-apt not found, use apt commands
     printf "nala not found, using apt to update...\n"
     sudo apt update && sudo apt full-upgrade
   fi
@@ -42,7 +40,7 @@ if command -v dpkg >/dev/null 2>&1 && [[ "$os_like" == debian || "$os_like" == u
 fi
 
 # Update Arch Linux (including yay & paru check)
-if [[ "$os_name" == arch ]]; then
+if [[ "$os_name" == arch && "$os_like" == arch ]]; then
   if command -v paru >/dev/null 2>&1; then
     printf "Detected Arch Linux, updating with paru..."
     paru
