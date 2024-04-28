@@ -2,6 +2,8 @@
 
 **UpdateMe** is a simple shell script which detects what OS it's running on and proceeds to run the commands to update (& upgrade) the system.
 
+- Note: cleaning and making it shorter is my next task
+
 ## Support
 
 - [**Debian**](https://www.debian.org)/[**Ubuntu**](https://ubuntu.com/desktop)-based distros
