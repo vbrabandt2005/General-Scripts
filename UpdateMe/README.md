@@ -2,7 +2,7 @@
 
 **UpdateMe** is a simple shell script which detects what OS it's running on and proceeds to run the commands to update (& upgrade) the system.
 
-- Note: cleaning and making it shorter is my next task
+- Note: This is like my second shell program. cleaning and making it shorter is my next task 🥲.
 
 ## Support
 
