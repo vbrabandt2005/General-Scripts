@@ -16,9 +16,10 @@ fi
 
 # Identify the OS based on os-release content
 os_name=$(grep -Eo '^ID=.*' /etc/os-release | cut -d= -f2- | tr -d '"')
+os_like=$(grep -Eo '^ID_LIKE=.*' /etc/os-release | cut -d= -f2- | tr -d '"' | tr ',' ' ')
 
 # Update for Debian-based systems (including nala-apt check)
-if command -v dpkg >/dev/null 2>&1; then
+if command -v dpkg >/dev/null 2>&1 && [[ "$os_like" == debian || "$os_like" == ubuntu || "$os_like" == "ubuntu debian" ]]; then
   # Likely a Debian-based system, use apt (or nala) commands
   printf "Detected Debian/Ubuntu-based system\n"
   if command -v nala >/dev/null 2>&1; then
@@ -56,7 +57,7 @@ fi
 
 # Update EndeavourOS 
 # (honestly idk why I have this, considering eos-update is just a frontend for pacman, yay & paru)
-if [[ "$os_name" == endeavouros ]]; then
+if [[ "$os_name" == endeavouros && "$os_like" == arch ]]; then
   if command -v paru >/dev/null 2>&1; then
     argu=--paru
     endy=paru
