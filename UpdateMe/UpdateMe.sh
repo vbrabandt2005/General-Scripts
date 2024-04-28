@@ -1,10 +1,6 @@
 #!/bin/bash
 
-# UpdateMe is a simple shell script which detects what OS
-# the script is running on and run the appropriate update command for that system
-# then proceeds to check if snap, flatpak or Pacstall is installed
-# and run the commands to check for updates for those too
-#
+# Title: UpdateMe
 # By vbrabandt2005 <vbrabandt@proton.me>
 
 # Check for compatible OS file
