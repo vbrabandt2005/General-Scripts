@@ -40,7 +40,7 @@ if command -v dpkg >/dev/null 2>&1 && [[ "$os_like" == debian || "$os_like" == u
 fi
 
 # Update Arch Linux (including yay & paru check)
-if [[ "$os_name" == arch ]]; then
+if [[ "$os_name" == "arch" ]]; then
   if command -v paru >/dev/null 2>&1; then
     printf "Detected Arch Linux, updating with paru..."
     paru
