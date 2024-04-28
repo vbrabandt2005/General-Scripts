@@ -4,15 +4,15 @@
 
 ## Support
 
-- [Debian](https://www.debian.org)/[Ubuntu](https://ubuntu.com/desktop)-based distros
+- [**Debian**](https://www.debian.org)/[**Ubuntu**](https://ubuntu.com/desktop)-based distros
   - [x] apt
   - [x] [nala](https://gitlab.com/volian/nala)
   - [x] [pacstall](https://pacstall.dev)
-- [Arch Linux](https://archlinux.org)
+- [**Arch Linux**](https://archlinux.org)
   - [x] [pacman](https://wiki.archlinux.org/title/pacman)
   - [x] [yay](https://github.com/Jguer/yay)
   - [x] [paru](https://github.com/Morganamilo/paru)
-- [EndeavourOS](https://endeavouros.com)
+- [**EndeavourOS**](https://endeavouros.com)
   - [x] eos-update
   - Probably very useless as EndeavourOS is based on Arch and `eos-update` is just a frontend for pacman, yay & paru
 
