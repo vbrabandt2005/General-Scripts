@@ -25,9 +25,11 @@ if command -v dpkg >/dev/null 2>&1 && [[ "$os_like" == debian || "$os_like" == u
   if command -v nala >/dev/null 2>&1; then
     printf "nala found, using nala to update...\n"
     sudo nala update && sudo nala full-upgrade
-  else
-    printf "nala not found, using apt to update...\n"
+  elif command -v apt >/dev/null 2>&1; then
+    printf "using apt to update...\n"
     sudo apt update && sudo apt full-upgrade
+  else
+    printf "What the? apt is not found.\n"
   fi
   
   # Check for and update with pactall (if installed)
@@ -35,36 +37,42 @@ if command -v dpkg >/dev/null 2>&1 && [[ "$os_like" == debian || "$os_like" == u
     printf "pactall is installed, will check for pactall updates...\n"
     pacstall -U && pacstall -Up
     else
-    printf "Flatpak is not found, will skip checking flatpak updates.\n"
+    printf "pacstall is not found, will skip checking pacstall updates.\n"
   fi
 fi
 
 # Update Arch Linux (including yay & paru check)
 if [[ "$os_name" == "arch" ]]; then
   if command -v paru >/dev/null 2>&1; then
-    printf "Detected Arch Linux, updating with paru..."
+    printf "Detected Arch Linux, updating with paru...\n"
     paru
   elif command -v yay >/dev/null 2>&1; then
-    printf "Detected Arch Linux, updating with yay..."
+    printf "Detected Arch Linux, updating with yay...\n"
     yay
-  else
-    printf "Detected Arch Linux, unable to find paru or yay, updating with pacman..."
+  elif command -v pacman >/dev/null 2>&1; then
+    printf "Detected Arch Linux, unable to find paru or yay, updating with pacman...\n"
     sudo pacman -Syu
+  else
+    printf "What the? pacman/yay/paru is not found.\n"
   fi
 fi
 
 # Update EndeavourOS 
 # (honestly idk why I have this, considering eos-update is just a frontend for pacman, yay & paru)
 if [[ "$os_name" == endeavouros && "$os_like" == arch ]]; then
-  if command -v paru >/dev/null 2>&1; then
-    argu=--paru
-    endy=paru
-  elif command -v yay >/dev/null 2>&1; then
-    argu=--yay
-    endy=yay
+  if elif command -v eos-update >/dev/null 2>&1; then
+    if command -v paru >/dev/null 2>&1; then
+      argu=--paru
+      endy=paru
+    elif command -v yay >/dev/null 2>&1; then
+      argu=--yay
+      endy=yay
+    fi
+    printf "Detected EndeavourOS, updating with eos-update with %s$endy...\n"
+    eos-update "$argu"
+  else
+    printf "Detected EndeavourOS, but can't find eos-update, updating with "
   fi
-  printf "Detected EndeavourOS, updating with eos-update with %s$endy...\n"
-  eos-update "$argu"
 fi
 
 echo
