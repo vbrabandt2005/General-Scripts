@@ -60,7 +60,7 @@ fi
 # Update EndeavourOS 
 # (honestly idk why I have this, considering eos-update is just a frontend for pacman, yay & paru)
 if [[ "$os_name" == endeavouros && "$os_like" == arch ]]; then
-  if elif command -v eos-update >/dev/null 2>&1; then
+  if command -v eos-update >/dev/null 2>&1; then
     if command -v paru >/dev/null 2>&1; then
       argu=--paru
       endy=paru
@@ -71,7 +71,15 @@ if [[ "$os_name" == endeavouros && "$os_like" == arch ]]; then
     printf "Detected EndeavourOS, updating with eos-update with %s$endy...\n"
     eos-update "$argu"
   else
-    printf "Detected EndeavourOS, but can't find eos-update, updating with "
+    if command -v paru >/dev/null 2>&1; then
+      endys=paru
+    elif command -v yay >/dev/null 2>&1; then
+      endys=yay
+    elif command -v  pacman >/dev/null 2>&1; then
+      endys="pacman -Syu"
+    fi
+    printf "Detected EndeavourOS, but can't find eos-update, updating with $endys...\n"
+    $endys
   fi
 fi
 
