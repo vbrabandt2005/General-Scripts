@@ -19,7 +19,7 @@
   - Probably very useless as EndeavourOS is based on Arch and `eos-update` is just a frontend for pacman, yay & paru
 
 ## Usage
-
+**There are four ways to use it**
 1. Press the download the raw file [here](https://github.com/vbrabandt2005/General-Scripts/blob/main/UpdateMe/UpdateMe.sh)
 2. Download it with `curl` or `wget` into your home directory
 
@@ -38,8 +38,6 @@
     ```bash
     ./UpdateMe.sh
     ```
-
-    - as long as the file is in the home directory it can be run
 
 3. Run straight from github
 
