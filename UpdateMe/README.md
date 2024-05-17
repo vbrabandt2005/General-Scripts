@@ -10,6 +10,8 @@
   - [x] apt
   - [x] [nala](https://gitlab.com/volian/nala)
   - [x] [pacstall](https://pacstall.dev)
+- [**Fedora**](https://fedoraproject.org)
+  - dnf
 - [**Arch Linux**](https://archlinux.org)
   - [x] [pacman](https://wiki.archlinux.org/title/pacman)
   - [x] [yay](https://github.com/Jguer/yay)
