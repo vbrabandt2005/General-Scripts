@@ -19,7 +19,9 @@
   - Probably very useless as EndeavourOS is based on Arch and `eos-update` is just a frontend for pacman, yay & paru
 
 ## Usage
-**There are four ways to use it**
+
+### There are four ways to use it
+
 1. Press the download the raw file [here](https://github.com/vbrabandt2005/General-Scripts/blob/main/UpdateMe/UpdateMe.sh)
 2. Download it with `curl` or `wget` into your home directory
 
@@ -45,7 +47,7 @@
     bash -c "$(curl -fsS https://raw.githubusercontent.com/vbrabandt2005/General-Scripts/main/UpdateMe/UpdateMe.sh)"
     ```
 
-4. `git clone` it
+4. just `git clone` it
 
     ```bash
     git clone https://github.com/vbrabandt2005/General-Scripts
