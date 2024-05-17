@@ -72,6 +72,7 @@ if [ -f /etc/os-release ]; then
   else
     printf "It seems this script doesn't know your distro's system update command.\n"
   fi
+  echo
   if command -v snap >/dev/null 2>&1; then
     printf "Snap is installed, will check for snap updates...\n"
     sudo snap refresh
