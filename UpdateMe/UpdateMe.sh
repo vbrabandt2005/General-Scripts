@@ -3,7 +3,7 @@
 # By vbrabandt2005 <vbrabandt@proton.me>
 
 if [ ! -f /etc/os-release ]; then
-  printf "Error: This script seems not be to supported by this script.\n"
+  printf "Error: This system seems to not be supported by this script.\n"
   exit 1
 fi
 
@@ -27,6 +27,20 @@ if command -v dpkg >/dev/null 2>&1 && [[ "$os_like" == debian || "$os_like" == u
     else
     printf "pacstall is not found, will skip checking pacstall updates.\n"
   fi
+else
+no_distro=1
+fi
+
+if command -v dnf >/dev/null 2>&1 && [[ "$os_name" == fedora ]]; then
+  printf "Detected Fedora system\n"
+  if command -v dnf >/dev/null 2>&1; then
+    printf "dnf found, using dnf to update...\n"
+    sudo dnf upgrade
+  else
+    printf "What the? dnf is not found\n"
+  fi
+else
+no_distro=1
 fi
 
 if [[ "$os_name" == "arch" ]]; then
@@ -42,6 +56,8 @@ if [[ "$os_name" == "arch" ]]; then
   else
     printf "What the? pacman/yay/paru is not found.\n"
   fi
+else
+no_distro=1
 fi
 
 if [[ "$os_name" == endeavouros && "$os_like" == arch ]]; then
@@ -69,8 +85,13 @@ if [[ "$os_name" == endeavouros && "$os_like" == arch ]]; then
       printf "What the? pacman/yay/paru/eos-update is not found.\n"
     fi
   fi
+else
+no_distro=1
 fi
 
+if [[ $no_distro -eq 1 ]]; then
+  printf "Script doesn't seem to support this system distro.\n"
+fi
 echo
 
 if command -v snap >/dev/null 2>&1; then
@@ -90,3 +111,4 @@ else
 fi
 
 printf "All update checks complete.\n"
+exit 0
