@@ -93,7 +93,6 @@ elif [[ $(uname -s) == Darwin ]] && [[ $(sw_vers -productName) == "macOS" ]]; th
     printf "Unable to find brew.\n"
   fi
 fi
-
 echo
 printf "All update checks complete.\n"
 exit 0
