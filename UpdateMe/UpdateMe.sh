@@ -27,11 +27,7 @@ if command -v dpkg >/dev/null 2>&1 && [[ "$os_like" == debian || "$os_like" == u
     else
     printf "pacstall is not found, will skip checking pacstall updates.\n"
   fi
-else
-no_distro=1
-fi
-
-if command -v dnf >/dev/null 2>&1 && [[ "$os_name" == fedora ]]; then
+elif command -v dnf >/dev/null 2>&1 && [[ "$os_name" == fedora ]]; then
   printf "Detected Fedora system\n"
   if command -v dnf >/dev/null 2>&1; then
     printf "dnf found, using dnf to update...\n"
@@ -39,11 +35,7 @@ if command -v dnf >/dev/null 2>&1 && [[ "$os_name" == fedora ]]; then
   else
     printf "What the? dnf is not found\n"
   fi
-else
-no_distro=1
-fi
-
-if [[ "$os_name" == "arch" ]]; then
+elif [[ "$os_name" == "arch" ]]; then
   if command -v paru >/dev/null 2>&1; then
     printf "Detected Arch Linux, updating with paru...\n"
     paru
@@ -56,11 +48,7 @@ if [[ "$os_name" == "arch" ]]; then
   else
     printf "What the? pacman/yay/paru is not found.\n"
   fi
-else
-no_distro=1
-fi
-
-if [[ "$os_name" == endeavouros && "$os_like" == arch ]]; then
+elif [[ "$os_name" == endeavouros && "$os_like" == arch ]]; then
   if command -v eos-update >/dev/null 2>&1; then
     if command -v paru >/dev/null 2>&1; then
       argu=--paru
@@ -86,12 +74,9 @@ if [[ "$os_name" == endeavouros && "$os_like" == arch ]]; then
     fi
   fi
 else
-no_distro=1
+  printf "It seems this script doesn't support your distro."
 fi
 
-if [[ $no_distro -eq 1 ]]; then
-  printf "Script doesn't seem to support this system distro.\n"
-fi
 echo
 
 if command -v snap >/dev/null 2>&1; then
