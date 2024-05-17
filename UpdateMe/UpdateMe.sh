@@ -74,7 +74,7 @@ elif [[ "$os_name" == endeavouros && "$os_like" == arch ]]; then
     fi
   fi
 else
-  printf "It seems this script doesn't support your distro."
+  printf "It seems this script doesn't know your distro's system update command.\n"
 fi
 
 echo
