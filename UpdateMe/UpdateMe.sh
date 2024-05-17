@@ -85,7 +85,6 @@ if [ -f /etc/os-release ]; then
   else
     printf "Flatpak is not found, will skip checking flatpak updates.\n"
   fi
-  echo
 elif [[ $(uname -s) == Darwin ]] && [[ $(sw_vers -productName) == "macOS" ]]; then
   printf "Detected MacOS, will try to update brew & it's apps\n"
   if command -v brew >/dev/null 2>&1; then
@@ -95,5 +94,6 @@ elif [[ $(uname -s) == Darwin ]] && [[ $(sw_vers -productName) == "macOS" ]]; th
   fi
 fi
 
+echo
 printf "All update checks complete.\n"
 exit 0
