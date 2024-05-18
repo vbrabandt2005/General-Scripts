@@ -20,7 +20,7 @@
   - [x] eos-update
   - Probably very useless as EndeavourOS is based on Arch and `eos-update` is just a frontend for pacman, yay & paru
 - [**MacOS**]("www.apple.com/macos")
-  - [brew](https://brew.sh)
+  - [x] [brew](https://brew.sh)
 
 ## Usage
 
