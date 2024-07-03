@@ -6,7 +6,7 @@ if [ -f /etc/os-release ]; then
   os_name=$(grep -Eo '^ID=.*' /etc/os-release | cut -d= -f2- | tr -d '"')
   os_like=$(grep -Eo '^ID_LIKE=.*' /etc/os-release | cut -d= -f2- | tr -d '"' | tr ',' ' ')
   printf "Linux system detected.\n"
-  if command -v dpkg >/dev/null 2>&1 && [[ "$os_like" == debian || "$os_like" == ubuntu || "$os_like" == "ubuntu debian" ]]; then
+  if command -v dpkg >/dev/null 2>&1 && [[ "$os_name" == debian || "$os_like" == debian || "$os_name" == Ubuntu || "$os_like" == ubuntu || "$os_like" == "ubuntu debian" ]]; then
     printf "Detected Debian/Ubuntu-based system\n"
     if command -v nala >/dev/null 2>&1; then
       printf "nala found, using nala to update...\n"
